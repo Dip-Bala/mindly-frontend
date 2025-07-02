@@ -12,7 +12,6 @@ interface ButtonProps{
     onClick?: () => void
 }
 
-
 const DefaultStyle: string = "rounded-md flex items-center justify-center gap-2"
 
 const SizeStyle: Record<SizeType,string> = {
