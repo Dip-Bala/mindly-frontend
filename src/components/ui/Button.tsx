@@ -1,4 +1,4 @@
-import { type ReactElement } from 'react'
+import { type ReactElement} from 'react'
 
 export type VariantType =  "primary" | "secondary";
 export type SizeType = "sm"| "md"| "lg";
@@ -29,9 +29,13 @@ export const Button = (props: ButtonProps) => {
     return (
     <div>
         <button 
+        // onClick={props.onClick?props.onClick : null}
         className=
-        {`${DefaultStyle} ${VariantStyle[props.variant]} ${SizeStyle[props.size]}`}> 
-        {props.startIcon}{props.text}{props.endIcon}
+        {`${DefaultStyle} ${VariantStyle[props.variant]} ${SizeStyle[props.size]}`}
+        > 
+       { props.startIcon}
+        {props.text}
+        {props.endIcon}
         </button>
     </div>)
 }

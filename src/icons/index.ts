@@ -1,5 +1,5 @@
 export interface IconProps {
-    size : "sm" | "md" | "lg"
+    size? : "sm" | "md" | "lg"
 }
 export const IconSizeVariants: Record<string, string> = {
     "sm" : "size-4",
