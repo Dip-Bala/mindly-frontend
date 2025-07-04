@@ -39,7 +39,7 @@ const items: SidebarItemProps[] = [
 
 export function Sidebar(): ReactNode {
     return (
-        <div className="w-[250px] border-r border-gray-200 h-screen">
+        <div className="w-[250px] border-r border-gray-200 h-screen fixed">
             <SidebarItem text={"Mindly"} icon={<ShareIcon size="lg" />} size="lg"  />
             <div className="flex flex-col gap-2 p-4">
                 <SidebarItem text={"Tweets"} icon={<TweetIcon size="md" />} size="sm" />

@@ -1,7 +1,7 @@
 import { type ReactElement} from 'react'
 
-export type VariantType =  "primary" | "secondary";
-export type SizeType = "sm"| "md"| "lg";
+type VariantType =  "primary" | "secondary";
+type SizeType = "sm"| "md"| "lg";
 
 interface ButtonProps{
     variant: VariantType;
@@ -28,7 +28,7 @@ export const Button = (props: ButtonProps) => {
     return (
     <div>
         <button 
-        // onClick={props.onClick?props.onClick : null}
+        onClick={props.onClick?props.onClick : () => {}}
         className=
         {`${DefaultStyle} ${VariantStyle[props.variant]} ${SizeStyle[props.size]}`}
         > 
