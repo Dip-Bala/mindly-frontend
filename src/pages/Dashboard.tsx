@@ -1,5 +1,4 @@
 import {useState} from 'react'
-import {BrowserRouter,  Routes, Route, useNavigate} from "react-router-dom"
 import {Button} from '../components/ui/Button'
 import {PlusIcon} from '../icons/PlusIcon'
 import {ShareIcon} from '../icons/ShareIcon'
@@ -12,10 +11,10 @@ function DashBoard() {
   const [ModalOpen, setModalOpen] = useState(false);
   return (
     <div >
-    <CreateContentModal open={ModalOpen} onClose={() => setModalOpen(false)}/>
-    <div className="flex">
       <Sidebar />
-      <div className="flex flex-col w-full px-2 gap-4 py-4 ml-[250px]">
+    <div className="flex">
+    <CreateContentModal open={ModalOpen} onClose={() => setModalOpen(false)}/>
+      <div className="flex flex-col w-full px-2 gap-4 py-4 ml-72 bg-gray-50">
       <TopBar setModalOpen={setModalOpen}/>
       <CardContainer/>
       </div>

@@ -24,7 +24,7 @@ const contentStyle: Record<ContentType, ReactElement> = {
 
 export function Card({title, type, link}: CardProps) {
     return (
-        <div className="flex flex-col justify-between rounded-md bg-blue text-slate-600 p-4 border w-72 border-gray-100 shadow-sm min-w-72 min-h-72 max-w-80">
+        <div className="flex flex-col justify-between rounded-md bg-blue text-slate-600 p-4 border w-72 border-gray-100 shadow-sm min-w-72 min-h-72 max-w-80 bg-white">
             <div className="flex justify-between max-w-72">
                 <div className="flex items-center gap-2">
                 {contentStyle[type]}
