@@ -1,11 +1,16 @@
-import {useState, type FormEvent, useRef} from 'react'
+import {useState, type FormEvent, type RefObject} from 'react'
 import { Button } from '../../components/ui/Button'
 import {Input} from '../../components/ui/Input'
-import { useAuthFormRefs } from '../../hooks/useAuthFormRefs'; 
 
-export function AuthForm({btnText, handleSubmit} : {btnText: string, handleSubmit: (e: FormEvent<HTMLFormElement>) => void}){
+interface AuthFormProps{
+    btnText: string,
+    handleSubmit: (e: FormEvent<HTMLFormElement>) => void;
+    usernameRef: RefObject<HTMLInputElement | null>;
+    passwordRef: RefObject<HTMLInputElement | null>;
+}
+
+export function AuthForm({btnText, handleSubmit, usernameRef, passwordRef}: AuthFormProps){
         const [isLoading, setIsLoading] = useState(false);
-        const { usernameRef, passwordRef } = useAuthFormRefs();
 
         return(
             <div className="w-screen h-screen flex justify-center items-center bg-gray-50">

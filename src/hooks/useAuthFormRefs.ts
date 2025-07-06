@@ -4,5 +4,5 @@ export function useAuthFormRefs() {
   const usernameRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
 
-  return { usernameRef, passwordRef };
+  return { usernameRef: usernameRef, passwordRef: passwordRef };
 }
