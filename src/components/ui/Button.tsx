@@ -23,7 +23,7 @@ const SizeStyle: Record<SizeType, string> = {
   lg: "px-6 py-2 text-md",
 };
 const VariantStyle: Record<VariantType, string> = {
-  primary: "bg-purple-300 text-purple-600",
+  primary: "bg-purple-300 text-purple-600 focus:bg-purple-500 focus:text-white",
   secondary: "bg-purple-500 text-white",
 };
 const fullWidthStyle = "w-full";

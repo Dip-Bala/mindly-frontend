@@ -3,16 +3,16 @@ import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify'
 import { AuthForm } from "../components/ui/AuthForm";
 import { useAuthFormRefs } from "../hooks/useAuthFormRefs";
-import { useSignupMutation } from "../hooks/useAuthMutation";
+import { useSigninMutation } from "../hooks/useAuthMutation";
 
-export function SignUp() {
+export function SignIn() {
     const navigate = useNavigate();
     const { usernameRef, passwordRef } = useAuthFormRefs();
-    const signupMutation = useSignupMutation(
+    const signinMutation = useSigninMutation(
         (data) => {
-            // const message = data?.data;
-            // toast.success(message)
-            /** Figure out how to store token and manage session */
+            const jwt_token = data.data.jwt;
+            console.log(jwt_token);
+            localStorage.setItem("authorization", jwt_token);
             navigate("/dashboard");
         },
         (err) => {
@@ -36,7 +36,7 @@ export function SignUp() {
         const username = usernameRef.current?.value;
         const password = passwordRef.current?.value;
 
-        signupMutation.mutate({
+        signinMutation.mutate({
             username: username ?? "",
             password: password ?? "",
         });

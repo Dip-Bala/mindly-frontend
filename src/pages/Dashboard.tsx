@@ -4,7 +4,7 @@ import {PlusIcon} from '../icons/PlusIcon'
 import {ShareIcon} from '../icons/ShareIcon'
 import {Sidebar} from '../components/ui/Sidebar'
 import {Card} from '../components/ui/Card'
-import {CreateContentModal} from '../components/ui/CreateContentModal'
+import {CreateContentModal} from '../components/ui/createContent/CreateContentModal'
 
 function DashBoard() {
   // const navigate = useNavigate();
