@@ -41,6 +41,7 @@ export const Button = ({
   fullWidth,
   loading,
 }: ButtonProps) => {
+  // console.log(onClick)
   return (
     <div>
       <button

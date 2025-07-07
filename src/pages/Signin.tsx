@@ -13,6 +13,7 @@ export function SignIn() {
             const jwt_token = data.data.jwt;
             console.log(jwt_token);
             localStorage.setItem("authorization", jwt_token);
+            toast.success('You are Signin in to your second brain')
             navigate("/dashboard");
         },
         (err) => {

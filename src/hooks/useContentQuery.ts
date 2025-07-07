@@ -5,10 +5,12 @@ import { API_URL } from '../../config'
 
 const api_url = `${API_URL}`;
 
+type ContentType = "document" | "tweet" | "youtube" | "";
+
 export interface ContentPayloadProps {
     title: string,
     link: string,
-    type: string,
+    type: ContentType,
     tags: string[],
     timeStamp: string,
     _id : string

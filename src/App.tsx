@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Dashboard from './pages/Dashboard'
 import { SignUp } from './pages/Signup'
 import { SignIn } from './pages/Signin'
+import {RequireAuth} from './authentication/RequiredAuth'
 const queryClient = new QueryClient();
 
 function App() {
@@ -14,7 +15,12 @@ function App() {
         <Routes >
           <Route path='/signup' element={<SignUp />} />
           <Route path='/signin' element={<SignIn />} />
-          <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/dashboard' element={ 
+          <RequireAuth >
+            <Dashboard />
+          </RequireAuth>
+          }>
+          </Route>
         </Routes>
         <ToastContainer
           position="top-center"

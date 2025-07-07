@@ -78,8 +78,8 @@ export function Card({ title, type, link, tags, timeStamp, contentId }: CardProp
         deleteMutation.mutate({ contentId: id });
       }
     return (
-        <div className="flex flex-col justify-between rounded-md bg-blue text-slate-600 border border-gray-100 shadow-sm min-w-80 max-w-80 bg-white h-auto">
-            <div className="flex justify-between p-4 items-center w-full ">
+        <div className="flex flex-col justify-between rounded-md bg-blue p-4 text-slate-600 border border-gray-100 shadow-sm min-w-76 w-80 bg-white h-auto min-h-50 max-h-full">
+            <div className="flex justify-between items-center w-full ">
                 <div className="flex items-center gap-3">
                     {contentStyle[type]}
                     <h3 className="font-medium text-sm">{title}</h3>
@@ -92,18 +92,18 @@ export function Card({ title, type, link, tags, timeStamp, contentId }: CardProp
                 </div>
             </div>
 
-            <div className=" overflow-hidden overflow-y-auto min-h-50 max-h-80">
+            <div className="my-2 overflow-hidden overflow-y-auto max-h-60">
                 {type === "youtube" && youtubeID && <Youtube ID={youtubeID} />}
                 {type === "tweet" && tweetInfo && (
                     <Twitter ID={tweetInfo.tweetId} username={tweetInfo.username} />
                 )}
             </div>
 
-            <div className="flex flex-col gap-2 text-sm p-4">
+            <div className="flex flex-col gap-2 text-sm ">
                 <div className="flex flex-wrap gap-2 ">
                     {
                         tags.map(tag => {
-                            return <p key={tag} className="bg-purple-200 text-purple-600 font-medium rounded-lg p-1 ">#{tag}</p>
+                            return <p key={tag} className="bg-purple-300 text-purple-600 font-medium rounded-lg p-1 cursor-pointer">#{tag}</p>
                         })
                     }
                 </div>

@@ -15,6 +15,7 @@ export function useSignupMutation(
 ){
     return useMutation({
         mutationFn: async ({username, password}: AuthPayload) => {
+            console.log('got called')
             const res = await axios.post(`${api_url}/signup`, {username, password});
             return res;
         },

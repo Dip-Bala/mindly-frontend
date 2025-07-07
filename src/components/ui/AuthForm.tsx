@@ -21,7 +21,7 @@ export function AuthForm({btnText, handleSubmit, usernameRef, passwordRef}: Auth
                     } className="flex flex-col gap-4 border bg-white border-gray-300 shadow-md shadow-gray-100 rounded-lg p-6 w-80 ">
                     <Input placeholder={"Username"} reference={usernameRef}/>
                     <Input placeholder={"Password"} reference={passwordRef}/>
-                    <Button variant={"primary"} size={"md"} text={btnText} fullWidth={true} loading={isLoading}/>
+                    <Button variant={"primary"} size={"md"} text={btnText} fullWidth={true} loading={isLoading} type={"submit"}/>
                 </form>
             </div>
         )
