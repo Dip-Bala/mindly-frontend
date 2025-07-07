@@ -5,7 +5,6 @@ interface TwitterProps{
 
 
 export default function Twitter({ID, username}: TwitterProps) {
-    console.log(username)
     return (
         <blockquote
         className="twitter-tweet w-full max-w-full">
