@@ -1,20 +1,23 @@
-import { type FormEvent } from "react";
+import { type FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify'
 import { AuthForm } from "../components/ui/AuthForm";
 import { useAuthFormRefs } from "../hooks/useAuthFormRefs";
 import { useSignupMutation } from "../hooks/useAuthMutation";
+import { BrainIcon } from "../icons/BrainIcon";
 
 export function SignUp() {
     const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState(false);
     const { usernameRef, passwordRef } = useAuthFormRefs();
     const signupMutation = useSignupMutation(
         (data) => {
             const message = data?.data;
             toast.success(message)
-            navigate("/dashboard");
+            navigate("/signin");
         },
         (err) => {
+            setIsLoading(false);
             const message = err.response?.data;
             toast.error(message, {
                 position: "top-center",
@@ -27,12 +30,12 @@ export function SignUp() {
                 theme: "colored"
             })
 
-            // alert(message);
         }
     );
 
     function handleSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
+        setIsLoading(true);
         const username = usernameRef.current?.value;
         const password = passwordRef.current?.value;
 
@@ -43,11 +46,18 @@ export function SignUp() {
     }
 
     return (
+        <div className="w-screen h-screen flex flex-col justify-center items-center bg-gray-50 gap-6">
+            <div className="flex gap-4 text-3xl font-bold items-center text-slate-700 font-stretch-90%">
+            <BrainIcon className="w-16"/>
+            <h1>Mindly</h1>
+            </div>
         <AuthForm
             btnText="Sign Up"
             handleSubmit={handleSubmit}
             usernameRef={usernameRef}
             passwordRef={passwordRef}
+            isLoading={isLoading}
         />
+        </div>
     );
 }

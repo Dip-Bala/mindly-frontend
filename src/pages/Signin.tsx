@@ -1,17 +1,20 @@
-import { type FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify'
 import { AuthForm } from "../components/ui/AuthForm";
 import { useAuthFormRefs } from "../hooks/useAuthFormRefs";
 import { useSigninMutation } from "../hooks/useAuthMutation";
+import { BrainIcon } from "../icons/BrainIcon";
 
 export function SignIn() {
     const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState(false);
     const { usernameRef, passwordRef } = useAuthFormRefs();
     const signinMutation = useSigninMutation(
         (data) => {
             const jwt_token = data.data.jwt;
-            console.log(jwt_token);
+            setIsLoading(false);
+            // console.log(jwt_token);
             localStorage.setItem("authorization", jwt_token);
             toast.success('You are Signin in to your second brain')
             navigate("/dashboard");
@@ -34,6 +37,7 @@ export function SignIn() {
 
     function handleSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
+        setIsLoading(true);
         const username = usernameRef.current?.value;
         const password = passwordRef.current?.value;
 
@@ -44,11 +48,21 @@ export function SignIn() {
     }
 
     return (
-        <AuthForm
-            btnText="Sign In"
-            handleSubmit={handleSubmit}
-            usernameRef={usernameRef}
-            passwordRef={passwordRef}
-        />
+        <div className="w-screen h-screen flex flex-col justify-center items-center bg-gray-50 gap-6">
+            <div className="flex gap-4 text-3xl font-bold items-center text-slate-700 font-stretch-90%">
+                <BrainIcon className="w-15" />
+                <h1>Mindly</h1>
+            </div>
+            <AuthForm
+                btnText="Sign In"
+                handleSubmit={handleSubmit}
+                usernameRef={usernameRef}
+                passwordRef={passwordRef}
+                isLoading={isLoading}
+            />
+            
+        </div>
     );
 }
+
+

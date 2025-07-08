@@ -6,7 +6,7 @@ type SizeType = "sm" | "md" | "lg";
 type ButtonProps = {
   variant: VariantType;
   size: SizeType;
-  text: string;
+  text?: string;
   type?: "button" | "submit" | "reset"; // ✅ Fixed
   startIcon?: ReactElement;
   endIcon?: ReactElement;
@@ -16,7 +16,7 @@ type ButtonProps = {
 };
 
 const DefaultStyle =
-  "rounded-md flex items-center justify-center gap-2 cursor-pointer";
+  "rounded-md flex items-center justify-center gap-2 cursor-pointer font-medium";
 const SizeStyle: Record<SizeType, string> = {
   sm: "px-2 py-1 text-sm",
   md: "px-4 py-2 text-md",
@@ -24,8 +24,8 @@ const SizeStyle: Record<SizeType, string> = {
 };
 const VariantStyle: Record<VariantType, string> = {
   primary:
-    "bg-purple-300 text-purple-600 focus:bg-purple-500 focus:text-white",
-  secondary: "bg-purple-500 text-white",
+    "bg-purple-300 text-purple-600 focus:bg-purple-500 focus:text-white hover:bg-gray-700 hover:text-white",
+  secondary: "bg-purple-500 text-white bg-gray-700",
 };
 const fullWidthStyle = "w-full";
 const loadingStyle = "disabled opacity-70";
