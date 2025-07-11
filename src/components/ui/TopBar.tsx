@@ -6,7 +6,12 @@ import { useShareMindMutation } from '../../hooks/useShareMind'
 import { toast } from 'react-toastify'
 import { BrainIcon } from '../../icons/BrainIcon'
 
-export function TopBar({ setModalOpen }) {
+type TopBarProps = {
+  setModalOpen: (value: boolean) => void;
+};
+
+
+export function TopBar({ setModalOpen }: TopBarProps) {
   const navigate = useNavigate();
   const shareMindMutation = useShareMindMutation(
     (data) => {
