@@ -1,12 +1,12 @@
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import { Sidebar } from '../components/ui/Sidebar'
 import { Card } from '../components/ui/Card'
 import { CreateContentModal } from '../components/ui/createContent/CreateContentModal'
 import { useContentQuery } from '../hooks/useContentQuery'
 import { Loader } from '../components/ui/Loading'
 import { TopBar } from '../components/ui/TopBar'
+import { type ContentType } from '../types/types';
 
-type ContentType = "document" | "tweet" | "youtube" | "logout" | "";
 
 function DashBoard() {
   const [ModalOpen, setModalOpen] = useState(false);

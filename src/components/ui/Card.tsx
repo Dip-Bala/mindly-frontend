@@ -5,13 +5,14 @@ import { TweetIcon } from "../../icons/TweetIcon";
 import { VideoIcon } from "../../icons/VideoIcon";
 import { DocumentIcon } from "../../icons/DocumentIcon";
 import { useDeleteContent } from '../../hooks/useDeleteContent';
-import { LinkIcon } from "../../icons/LinkIcon";
-import { TagIcon } from "../../icons/TagIcon";
 import Youtube from "../ui/linkUrls/Youtube";
 import Twitter from "../ui/linkUrls/Twitter";
 import { toast } from 'react-toastify';
 import {useQueryClient} from '@tanstack/react-query'
-type ContentType = "document" | "tweet" | "youtube";
+import { type ContentType } from '../../types/types';
+import { UserIcon } from "../../icons/UserIcon";
+import { HomeIcon } from "../../icons/HomeIcon";
+
 
 interface CardProps {
     title: string;
@@ -26,6 +27,8 @@ const contentStyle: Record<ContentType, ReactElement> = {
     document: <DocumentIcon size="md" />,
     youtube: <VideoIcon size="md" />,
     tweet: <TweetIcon size="md" />,
+    logout: <UserIcon size="md"/>,
+    "" : <HomeIcon size="md"/>
 };
 
 function extractYouTubeId(url: string): string | null {
