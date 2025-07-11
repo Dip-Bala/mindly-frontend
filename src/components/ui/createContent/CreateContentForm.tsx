@@ -1,4 +1,4 @@
-import { type FormEvent, useState } from 'react'
+import { type FormEvent } from 'react'
 import { Button } from '../Button'
 import { Input } from "../Input"
 import { useContentPayload } from '../../../hooks/useContentPayload'
@@ -22,6 +22,7 @@ export function CreateContentForm({ onClose }: CreateContentFormProps) {
     } = useContentPayload();
 
     const contentMutation = useContentMutation((data) => {
+        console.log(data);
         toast.success("Thought saved to Mindly!");
         queryClient.invalidateQueries({ queryKey: ['cardContents'] });
     },
