@@ -14,12 +14,12 @@ export function SignIn() {
         (data) => {
             const jwt_token = data.data.jwt;
             setIsLoading(false);
-            // console.log(jwt_token);
             localStorage.setItem("authorization", jwt_token);
             toast.success('You are Signin in to your second brain')
             navigate("/dashboard");
         },
         (err) => {
+            setIsLoading(false);
             const message = err.response?.data;
             toast.error(message, {
                 position: "top-center",

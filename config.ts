@@ -1,1 +1,1 @@
-export const API_URL = "http://localhost:8808/api/v1/mindly"
+export const API_URL = import.meta.env.VITE_API_BASE_URL;

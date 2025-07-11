@@ -7,7 +7,6 @@ interface AuthPayload{
     password: string
 }
 const api_url = `${API_URL}/auth`;
-console.log(api_url);
 
 export function useSignupMutation(
     onSuccess : (data: any) => void,
