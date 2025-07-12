@@ -1,25 +1,37 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { ToastContainer} from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Dashboard from './pages/Dashboard'
 import { SignUp } from './pages/Signup'
 import { SignIn } from './pages/Signin'
-import {RequireAuth} from './authentication/RequiredAuth'
+import { RequireAuth } from './authentication/RequiredAuth'
+import LandingPage from "./pages/LandingPage";
 const queryClient = new QueryClient();
 
 function App() {
+  const token = localStorage.getItem('authorization');
   return (
     <QueryClientProvider client={queryClient}>
+      {/* <LandingPage /> */}
       <BrowserRouter>
         <Routes >
-        <Route path="/" element={<Navigate to="/dashboard" replace />} />
+          <Route path="/" element={
+            token ? <Navigate to="/dashboard" replace /> : <LandingPage />
+          } />
+
+          {/* Sign In / Sign Up: Redirect to dashboard if already signed in */}
+          <Route path="/signin" element={
+            token ? <Navigate to="/dashboard" replace /> : <SignIn />
+          } />
+          {/* <Route path="/signup" element={
+            token ? <Navigate to="/dashboard" replace /> : <SignUp />
+          } /> */}
           <Route path='/signup' element={<SignUp />} />
-          <Route path='/signin' element={<SignIn />} />
-          <Route path='/dashboard' element={ 
-          <RequireAuth >
-            <Dashboard />
-          </RequireAuth>
+          <Route path='/dashboard' element={
+            <RequireAuth >
+              <Dashboard />
+            </RequireAuth>
           }>
           </Route>
         </Routes>
