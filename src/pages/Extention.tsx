@@ -4,8 +4,8 @@
 
 export default function ExtensionPromo() {
   return (
-    <section className="py-16 px-6 md:px-10 text-gray-800 ">
-      <div className="max-w-5xl mx-auto text-center backdrop-blur-xs px-10 py-20 rounded-lg border border-gray-300 bg-purple-300">
+    <section className="py-16 px-6 md:px-10 text-gray-800 backdrop-blur-md">
+      <div className="max-w-5xl mx-auto text-center backdrop-blur-xs px-10 py-20 rounded-lg border border-gray-300 bg-purple-300 ">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
           📎 Supercharge Mindly with Our Chrome Extension
         </h2>

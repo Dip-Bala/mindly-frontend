@@ -6,9 +6,9 @@ import ExtensionPromo from "./Extention";
 
 export default function LandingPage() {
     return (
-        <div className="font-sans text-gray-800">
+        <div className="font-sans text-gray-800 bg-gray-100">
             {/* Background */}
-            <div className="w-screen h-screen bg-[url('/assets/bg-3.png')] bg-cover bg-no-repeat bg-center fixed -z-40 bg-white bg-blend-luminosity"></div>
+            {/* <div className="w-screen h-screen bg-[url('/assets/bg.png')] bg-cover bg-no-repeat bg-center fixed -z-40 bg-white bg-blend-luminosity"></div> */}
             <Header />
             <Hero />
             <DashboardPreview />
@@ -23,15 +23,18 @@ export default function LandingPage() {
 function Header() {
     const navigate = useNavigate();
     return (
-        <div className="flex justify-between items-center p-6 shadow-md sticky top-0 z-50 backdrop-blur-md">
+        <div className="p-4 fixed w-full z-50">
+            <div className="flex justify-between items-center p-4 shadow-md z-50 backdrop-blur-xs rounded-lg ">
             <div className="flex items-center gap-2 cursor-pointer hover:scale-105 transition-transform duration-200" onClick={() => navigate('/')}> 
                 <BrainIcon className="w-10" />
                 <h1 className="text-xl font-bold">Mindly</h1>
             </div>
             <div className="flex space-x-4">
+                <button className="cursor-pointer text-gray-700 hover:border border-gray-100 hover:px-2 hover:py-1 rounded-md backdrop-blur-xs transition-transform duration-300" onClick={() => navigate('/')} >Install Extention</button>
                 <Button text="Sign in" variant="primary" type="button" size="md" onClick={() => navigate('/signin')} />
                 <Button text="Get Started" variant="secondary" type="button" size="md" onClick={() => navigate('/signup')} />
             </div>
+        </div>
         </div>
     )
 }
@@ -39,7 +42,7 @@ function Header() {
 function Hero() {
     const navigate = useNavigate();
     return (
-        <div className="animate-fade-in pt-16 pb-8 px-6 md:px-20 flex justify-center">
+        <div className="animate-fade-in pt-40 pb-8 px-6 md:px-20 flex justify-center ">
             <div  className="text-center animate-fade-in backdrop-blur-sm">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 ">Your Second Brain for the Web</h2>
             <p className="text-lg md:text-xl max-w-2xl mx-auto mb-8 text-gray-600">
@@ -55,7 +58,7 @@ function Hero() {
 
 function Features() {
     return (
-        <div className="flex flex-col justify-center text-center md:px-20 px-6 py-20 ">
+        <div className="flex flex-col justify-center text-center md:px-20 px-6 py-20 backdrop-blur-xs">
             <div className="flex justify-center">
                 <BookMarkIcon size="lg" />
             </div>
@@ -129,7 +132,7 @@ function FinalCall() {
 
 function Footer() {
     return (
-        <footer className="bg-gray-800 text-white py-6 text-center text-sm">
+        <footer className="bg-gray-700 text-white py-6 text-center text-sm">
             <p>&copy; 2025 Mindly. All rights reserved.</p>
         </footer>
     )

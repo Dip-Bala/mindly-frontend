@@ -16,7 +16,7 @@ type ButtonProps = {
 };
 
 const DefaultStyle =
-  "rounded-md flex items-center justify-center gap-2 cursor-pointer font-medium";
+  "rounded-md flex items-center justify-center gap-2 cursor-pointer font-medium ";
 const SizeStyle: Record<SizeType, string> = {
   sm: "px-2 py-1 text-sm",
   md: "px-4 py-2 text-md",
