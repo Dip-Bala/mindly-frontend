@@ -1,9 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { LinkedinIcon } from "../../icons/LinkedinIcon";
-import { TweetIcon } from "../../icons/TweetIcon";
 import { XIcon } from "../../icons/XIcon";
 import { GithubIcon } from "../../icons/GithubIcon";
-// import { PrivacyPolicy } from "../../pages/PrivacyPolicy";
+
 
 export function Footer() {
     const navigate = useNavigate();
