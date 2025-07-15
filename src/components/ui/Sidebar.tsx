@@ -55,7 +55,7 @@ export function Sidebar({ onSelectType, activeType }: SidebarProps): ReactNode {
     const navigate = useNavigate();
     function logout(){
         localStorage.removeItem('authorization');
-        navigate('/signin')
+        navigate('/', {replace : true})
     }
     function ShowLogout(){
         return (

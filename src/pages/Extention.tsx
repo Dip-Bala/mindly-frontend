@@ -2,13 +2,19 @@
 // import { DownloadIcon, ChromeIcon, ExtensionIcon } from './YourIcons'; // use your custom or lucide-react icons
 // import mindlyExtensionGif from '../assets/mindly-extension-demo.gif'; // optional gif or screenshot demo
 
+import { ExtensionIcon } from "../icons/ExtensionIcon";
+
 export default function ExtensionPromo() {
   return (
     <section className="py-16 px-6 md:px-10 text-gray-800 backdrop-blur-md">
-      <div className="max-w-5xl mx-auto text-center backdrop-blur-xs px-10 py-20 rounded-lg border border-gray-300 bg-purple-300 ">
+      <div className="max-w-5xl mx-auto text-center backdrop-blur-xs px-10 py-20 rounded-lg border border-gray-300 bg-white/80">
+        <div className="flex gap-2">
+        <ExtensionIcon />
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
-          📎 Supercharge Mindly with Our Chrome Extension
+           Supercharge Mindly with Our Chrome Extension
         </h2>
+
+        </div>
         <p className="text-lg md:text-xl text-gray-600 mb-8">
           Save tweets, YouTube videos, and links to your Mindly dashboard instantly — without opening the app.
         </p>

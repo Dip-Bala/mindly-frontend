@@ -14,7 +14,7 @@ export function SignUp() {
         (data) => {
             const message = data?.data;
             toast.success(message)
-            navigate("/signin");
+            navigate("/signin", {replace : true});
         },
         (err) => {
             setIsLoading(false);
@@ -46,7 +46,7 @@ export function SignUp() {
     }
 
     return (
-        <div className="w-screen h-screen flex flex-col justify-center items-center bg-gray-50 gap-6">
+        <div className="w-screen h-screen flex flex-col justify-center items-center  bg-linear-to-b to-white from-indigo-100/100 bg-radial gap-6">
             <div className="flex gap-4 text-3xl font-bold items-center text-slate-700 font-stretch-90%">
             <BrainIcon className="w-16"/>
             <h1>Mindly</h1>

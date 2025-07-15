@@ -3,13 +3,12 @@ import { BookMarkIcon } from "../icons/BookMarkIcon";
 import ExtensionPromo from "./Extention";
 import { Header } from '../components/ui/Header';
 import { Footer } from '../components/ui/Footer';
+import { Button } from '../components/ui/Button';
 
 
 export default function LandingPage() {
     return (
-        <div className="font-sans text-gray-800 bg-gray-100">
-            {/* Background */}
-            {/* <div className="w-screen h-screen bg-[url('/assets/bg.png')] bg-cover bg-no-repeat bg-center fixed -z-40 bg-white bg-blend-luminosity"></div> */}
+        <div className="font-sans text-gray-800 bg-linear-to-r from-indigo-200/80 to-white/100 bg-radial">
             <Header />
             <Hero />
             <DashboardPreview />
@@ -25,15 +24,13 @@ export default function LandingPage() {
 function Hero() {
     const navigate = useNavigate();
     return (
-        <div className="animate-fade-in pt-40 pb-8 px-6 md:px-20 flex justify-center ">
-            <div  className="text-center animate-fade-in backdrop-blur-sm">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 ">Your Second Brain for the Web</h2>
-            <p className="text-lg md:text-xl max-w-2xl mx-auto mb-8 text-gray-600">
+        <div className="pt-40 pb-8 px-6 md:px-20 flex justify-center ">
+            <div  className="flex flex-col gap-6 items-center text-center backdrop-blur-sm">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 ">Your Second Brain for the Web</h2>
+            <p className="text-lg md:text-xl max-w-2xl mx-auto text-gray-600">
                 Save videos, tweets, links, articles & documents — all in one beautifully organized space.
             </p>
-            <button onClick={() => navigate('/signup')} className="bg-indigo-600 hover:bg-indigo-700 transition text-white px-6 py-3 rounded-lg font-semibold">
-                Get Started
-            </button>
+            <Button text={"Get Started"} type="button" variant="secondary" size="lg" onClick={() => navigate('/signup')} />
             </div>
         </div>
     );

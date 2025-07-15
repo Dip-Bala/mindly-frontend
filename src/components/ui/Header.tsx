@@ -14,7 +14,6 @@ export function Header() {
                     <h1 className="text-xl font-bold">Mindly</h1>
                 </div>
                 <div className="flex space-x-4">
-                <button className="cursor-pointer text-gray-700 hover:border border-gray-100 rounded-md backdrop-blur-xs transition-transform duration-300" onClick={() => navigate('/privacy-policy')} >Privacy Policy</button>
                     <button className="cursor-pointer text-gray-700 border-gray-100 rounded-md backdrop-blur-xs transition-transform duration-300 hover:text-shadow-sm hover:text-shadow-indigo-400/40" onClick={() => navigate('/')} >Install Extention</button>
                     <Button text="Sign in" variant="primary" type="button" size="md" onClick={() => navigate('/signin')} />
                     <Button text="Get Started" variant="secondary" type="button" size="md" onClick={() => navigate('/signup')} />

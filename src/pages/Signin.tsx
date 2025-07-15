@@ -16,7 +16,7 @@ export function SignIn() {
             setIsLoading(false);
             localStorage.setItem("authorization", jwt_token);
             toast.success('You are Signin in to your second brain')
-            navigate("/dashboard");
+            navigate("/dashboard", {replace : true});
         },
         (err) => {
             setIsLoading(false);
@@ -48,7 +48,7 @@ export function SignIn() {
     }
 
     return (
-        <div className="w-screen h-screen flex flex-col justify-center items-center bg-gray-50 gap-6">
+        <div className="w-screen h-screen flex flex-col justify-center items-center gap-6 bg-linear-to-b to-white from-indigo-100/100 bg-radial">
             <div className="flex gap-4 text-3xl font-bold items-center text-slate-700 font-stretch-90%">
                 <BrainIcon className="w-15" />
                 <h1>Mindly</h1>

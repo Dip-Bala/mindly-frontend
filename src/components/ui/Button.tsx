@@ -13,19 +13,20 @@ type ButtonProps = {
   onClick?: () => void;
   fullWidth?: boolean;
   loading?: boolean;
+  className? : string;
 };
 
 const DefaultStyle =
-  "rounded-md flex items-center justify-center gap-2 cursor-pointer font-medium ";
+  "rounded-lg flex items-center justify-center gap-2 cursor-pointer ";
 const SizeStyle: Record<SizeType, string> = {
-  sm: "px-2 py-1 text-sm",
+  sm: "px-2 py-1 text-md",
   md: "px-4 py-2 text-md",
-  lg: "px-6 py-2 text-md",
+  lg: "px-6 py-3 text-md font-semibold",
 };
 const VariantStyle: Record<VariantType, string> = {
   primary:
-    "bg-purple-300 text-purple-600 focus:bg-purple-500 focus:text-white hover:bg-gray-700 hover:text-white",
-  secondary: "bg-purple-500 text-white bg-gray-700",
+    "bg-white outline text-indigo-700 hover:outline-2 hover:outline-indigo-600/90 hover:bg-white",
+  secondary: "bg-indigo-600 text-white  hover:shadow-md hover:shadow-indigo-600/50",
 };
 const fullWidthStyle = "w-full";
 const loadingStyle = "disabled opacity-70";
@@ -40,6 +41,7 @@ export const Button = ({
   endIcon,
   fullWidth,
   loading,
+  className=""
 }: ButtonProps) => {
   // console.log(onClick)
   return (
@@ -50,7 +52,7 @@ export const Button = ({
         disabled={loading}
         className={`${DefaultStyle} ${VariantStyle[variant]} ${SizeStyle[size]} ${
           fullWidth ? fullWidthStyle : ""
-        } ${loading ? loadingStyle : ""}`}
+        } ${loading ? loadingStyle : ""} ${className}`}
       >
         {startIcon}
         {text}
