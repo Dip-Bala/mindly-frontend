@@ -7,6 +7,7 @@ import { SignUp } from './pages/Signup'
 import { SignIn } from './pages/Signin'
 import { RequireAuth } from './authentication/RequiredAuth'
 import LandingPage from "./pages/LandingPage";
+import { PrivacyPolicy } from "./pages/PrivacyPolicy";
 const queryClient = new QueryClient();
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
             </RequireAuth>
           }>
           </Route>
+          <Route path='/privacy-policy' element={<PrivacyPolicy/>} />
         </Routes>
         <ToastContainer
           position="top-center"
