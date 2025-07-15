@@ -40,13 +40,13 @@ function Features() {
     return (
         <div className="flex flex-col justify-center text-center md:px-20 px-6 py-20 backdrop-blur-xs">
             <div className="flex justify-center">
-                <BookMarkIcon size="lg" />
+                {/* <BookMarkIcon size="lg" /> */}
             </div>
             <h3 className="text-4xl font-bold mb-4 text-gray-900">Your Mind, Visualized</h3>
             <p className="text-gray-600 max-w-xl mx-auto mb-10">
                 A distraction-free dashboard where all your saved content lives. Tag it, search it, revisit it.
             </p>
-        <div className="grid md:grid-cols-3 gap-8 text-slate-700 backdrop-blur-xs ">
+        <div className="grid md:grid-cols-3 gap-6 text-slate-700 backdrop-blur-xs md:px-20 sm:px-10">
             {[
                 {
                     title: "Save Anything",
@@ -66,7 +66,7 @@ function Features() {
             ].map((feature, idx) => (
                 <div
                     key={idx}
-                    className={`flex flex-col p-8 rounded-lg shadow-md gap-4 max-w-80 mx-auto hover:scale-105 hover:shadow-lg transition-transform duration-300 ${feature.bg}`}
+                    className={`flex flex-col items-center p-8 rounded-lg shadow-md gap-4 max-w-80 mx-auto hover:scale-105 hover:shadow-lg transition-transform duration-300 ${feature.bg} `}
                 >
                     <BookMarkIcon size="lg" />
                     <h3 className="text-xl font-semibold">{feature.title}</h3>
