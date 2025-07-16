@@ -17,7 +17,7 @@ type ButtonProps = {
 };
 
 const DefaultStyle =
-  "rounded-lg flex items-center justify-center gap-2 cursor-pointer ";
+  "rounded-lg flex items-center justify-center gap-2 cursor-pointer hover:scale-105";
 const SizeStyle: Record<SizeType, string> = {
   sm: "px-2 py-1 text-md",
   md: "px-4 py-2 text-md",
