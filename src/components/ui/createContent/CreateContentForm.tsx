@@ -23,7 +23,7 @@ export function CreateContentForm({ onClose }: CreateContentFormProps) {
         typeRef
     } = useContentPayload();
 
-    const contentMutation = useContentMutation((data) => {
+    const contentMutation = useContentMutation(() => {
         // console.log(data);
         hide();
         toast.success("Thought saved to Mindly!");

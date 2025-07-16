@@ -1,4 +1,4 @@
-import { type FormEvent, useState } from "react";
+import { type FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify'
 import { AuthForm } from "../components/ui/AuthForm";
