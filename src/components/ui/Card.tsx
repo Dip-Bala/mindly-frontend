@@ -106,7 +106,7 @@ export function Card({ title, type, link, tags, timeStamp, contentId }: CardProp
                 <div className="flex flex-wrap gap-2 ">
                     {
                         tags.map(tag => {
-                            return <p key={tag} className="bg-purple-300 text-purple-600 font-medium rounded-lg p-1 cursor-pointer">#{tag}</p>
+                            return <p key={tag} className="bg-indigo-100 text-indigo-600 font-medium rounded-lg p-1 cursor-pointer">#{tag}</p>
                         })
                     }
                 </div>

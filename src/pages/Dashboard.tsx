@@ -3,18 +3,26 @@ import { Sidebar } from '../components/ui/Sidebar'
 import { Card } from '../components/ui/Card'
 import { CreateContentModal } from '../components/ui/createContent/CreateContentModal'
 import { useContentQuery } from '../hooks/useContentQuery'
-import { Loader } from '../components/ui/Loading'
 import { TopBar } from '../components/ui/TopBar'
 import { type ContentType } from '../types/types';
-
+import { useLoading } from '../hooks/useLoadingProvider'
+import { ErrorPage } from '../components/ui/ErrorPage'
 
 function DashBoard() {
   const [ModalOpen, setModalOpen] = useState(false);
   const [selectedType, setSelectedType] = useState<ContentType>("");
-  // const selectTypeRef = useRef("selectedType");
   const { data, isLoading, isError } = useContentQuery();
-  if (isLoading) return <Loader />;
-  if (isError) return <p>Error fetching content</p>;
+  const {show, hide} = useLoading();
+
+  if (isLoading){
+    show();
+  }else if(data){
+    hide();
+  }
+
+  if (isError){
+    return <ErrorPage />
+  }
 
   const filteredData = selectedType ? data?.filter(item => item.type === selectedType) : data;
 

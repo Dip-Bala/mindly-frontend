@@ -1,25 +1,27 @@
-import { useState, type FormEvent } from "react";
+import { type FormEvent} from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify'
 import { AuthForm } from "../components/ui/AuthForm";
 import { useAuthFormRefs } from "../hooks/useAuthFormRefs";
 import { useSigninMutation } from "../hooks/useAuthMutation";
 import { BrainIcon } from "../icons/BrainIcon";
+import { useLoading } from "../hooks/useLoadingProvider";
 
 export function SignIn() {
     const navigate = useNavigate();
-    const [isLoading, setIsLoading] = useState(false);
     const { usernameRef, passwordRef } = useAuthFormRefs();
+    const {show, hide} = useLoading();
+    
     const signinMutation = useSigninMutation(
         (data) => {
             const jwt_token = data.data.jwt;
-            setIsLoading(false);
+            hide();
             localStorage.setItem("authorization", jwt_token);
             toast.success('You are Signin in to your second brain')
             navigate("/dashboard", {replace : true});
         },
         (err) => {
-            setIsLoading(false);
+            hide();
             const message = err.response?.data;
             toast.error(message, {
                 position: "top-center",
@@ -37,7 +39,7 @@ export function SignIn() {
 
     function handleSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
-        setIsLoading(true);
+        show();
         const username = usernameRef.current?.value;
         const password = passwordRef.current?.value;
 
@@ -58,9 +60,7 @@ export function SignIn() {
                 handleSubmit={handleSubmit}
                 usernameRef={usernameRef}
                 passwordRef={passwordRef}
-                isLoading={isLoading}
             />
-            
         </div>
     );
 }

@@ -5,7 +5,7 @@ interface InputProps{
 }
 export function Input({placeholder, reference}: InputProps){
     return(
-        <input placeholder={placeholder} ref={reference} type="text" className="p-2 border border-gray-300 rounded-md focus:border-0 focus:outline-2 focus:outline-purple-500"/>
+        <input placeholder={placeholder} ref={reference} type="text" className="p-2 border border-gray-300 rounded-md focus:border-0 focus:outline-2 focus:outline-indigo-500 hover:bg-gray-50"/>
     )
 }
 

@@ -9,11 +9,13 @@ import { toast } from 'react-toastify'
 import { useContentMutation } from '../../../hooks/useContentMutation'
 import { CancelIcon } from '../../../icons/CancelIcon'
 import {useQueryClient} from '@tanstack/react-query'
+import { useLoading } from '../../../hooks/useLoadingProvider';
 interface CreateContentFormProps {
     onClose: () => void;
 }
 export function CreateContentForm({ onClose }: CreateContentFormProps) {
     const queryClient = useQueryClient();
+    const {show, hide} = useLoading();
     const {
         titleRef,
         linkRef,
@@ -22,11 +24,13 @@ export function CreateContentForm({ onClose }: CreateContentFormProps) {
     } = useContentPayload();
 
     const contentMutation = useContentMutation((data) => {
-        console.log(data);
+        // console.log(data);
+        hide();
         toast.success("Thought saved to Mindly!");
         queryClient.invalidateQueries({ queryKey: ['cardContents'] });
     },
         (err) => {
+            hide();
             toast.error(err.response.data)
         });
 
@@ -45,12 +49,13 @@ export function CreateContentForm({ onClose }: CreateContentFormProps) {
 
     function handleSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
+        show();
         const title = titleRef.current?.value || "";
         const link = linkRef.current?.value || "";
         const tags = tagsRef.current?.value || "";
         const type = typeRef.current || "";
         const tagsArr = tagsArray(tags);
-        console.log(title, link, tagsArr, type);
+        // console.log(title, link, tagsArr, type);
 
         if (title === "" || link === "") {
             toast.error("Title and Link must be provided");
@@ -79,21 +84,21 @@ export function CreateContentForm({ onClose }: CreateContentFormProps) {
             }
             } className="flex flex-col gap-2 w-full">
                 <div className="flex flex-col">
-                    <label className="text-sm font-semibold text-purple-500">Title</label><Input placeholder={"Title"} reference={titleRef} />
+                    <label className="text-sm font-semibold text-indigo-600">Title</label><Input placeholder={"Title"} reference={titleRef} />
                 </div>
                 <div className="flex flex-col">
-                    <label className="text-sm font-semibold text-purple-500">Link</label><Input placeholder={"Link"} reference={linkRef} />
+                    <label className="text-sm font-semibold text-indigo-600">Link</label><Input placeholder={"Link"} reference={linkRef} />
                 </div>
                 <div className="flex flex-col gap-2">
-                    <label className="text-sm font-semibold text-purple-500">Type</label>
+                    <label className="text-sm font-semibold text-indigo-600">Type</label>
                     <div className="flex gap-2">
-                        <Button variant="primary" text="" size="sm" startIcon={<TweetIcon size="md" />} onClick={() => typeRef.current = "tweet"} type="button" />
-                        <Button variant="primary" text="" size="sm" startIcon={<VideoIcon size="md" />} onClick={() => typeRef.current = "youtube"} type="button" />
-                        <Button variant="primary" text="" size="sm" startIcon={<DocumentIcon size="md" />} onClick={() => typeRef.current = "document"} type="button" />
+                        <Button variant="secondary" text="" size="sm" startIcon={<TweetIcon size="md" />} onClick={() => typeRef.current = "tweet"} type="button" />
+                        <Button variant="secondary" text="" size="sm" startIcon={<VideoIcon size="md" />} onClick={() => typeRef.current = "youtube"} type="button" />
+                        <Button variant="secondary" text="" size="sm" startIcon={<DocumentIcon size="md" />} onClick={() => typeRef.current = "document"} type="button" />
                     </div>
                 </div>
                 <div className="flex flex-col">
-                    <label className="text-sm font-semibold text-purple-500">Tags</label><Input placeholder={"Tags"} reference={tagsRef} />
+                    <label className="text-sm font-semibold text-indigo-600">Tags</label><Input placeholder={"Tags"} reference={tagsRef} />
                 </div>
                 <Button variant="secondary" text="Submit" size="md" fullWidth type="submit" />
             </form>

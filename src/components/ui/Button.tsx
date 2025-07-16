@@ -25,22 +25,20 @@ const SizeStyle: Record<SizeType, string> = {
 };
 const VariantStyle: Record<VariantType, string> = {
   primary:
-    "bg-white outline text-indigo-700 hover:outline-2 hover:outline-indigo-600/90 hover:bg-white",
-  secondary: "bg-indigo-600 text-white  hover:shadow-md hover:shadow-indigo-600/50",
+    "bg-white outline text-indigo-700 hover:outline-2 hover:outline-indigo-600/90 hover:bg-white focus:bg-purple-800 focus:text-white",
+  secondary: "bg-indigo-600 text-white  hover:shadow-md hover:shadow-indigo-600/50 focus:bg-purple-500",
 };
 const fullWidthStyle = "w-full";
-const loadingStyle = "disabled opacity-70";
 
 export const Button = ({
   onClick,
-  type = "button", // ✅ defaulted
+  type = "button", 
   variant,
   size,
   text,
   startIcon,
   endIcon,
   fullWidth,
-  loading,
   className=""
 }: ButtonProps) => {
   // console.log(onClick)
@@ -49,10 +47,9 @@ export const Button = ({
       <button
         type={type}
         onClick={onClick}
-        disabled={loading}
         className={`${DefaultStyle} ${VariantStyle[variant]} ${SizeStyle[size]} ${
           fullWidth ? fullWidthStyle : ""
-        } ${loading ? loadingStyle : ""} ${className}`}
+        } ${className}`}
       >
         {startIcon}
         {text}

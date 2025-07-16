@@ -5,19 +5,21 @@ import { AuthForm } from "../components/ui/AuthForm";
 import { useAuthFormRefs } from "../hooks/useAuthFormRefs";
 import { useSignupMutation } from "../hooks/useAuthMutation";
 import { BrainIcon } from "../icons/BrainIcon";
+import { useLoading } from "../hooks/useLoadingProvider";
 
 export function SignUp() {
     const navigate = useNavigate();
-    const [isLoading, setIsLoading] = useState(false);
     const { usernameRef, passwordRef } = useAuthFormRefs();
+    const {show, hide} = useLoading();
     const signupMutation = useSignupMutation(
         (data) => {
+            hide()
             const message = data?.data;
             toast.success(message)
             navigate("/signin", {replace : true});
         },
         (err) => {
-            setIsLoading(false);
+            hide()
             const message = err.response?.data;
             toast.error(message, {
                 position: "top-center",
@@ -35,7 +37,7 @@ export function SignUp() {
 
     function handleSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
-        setIsLoading(true);
+        show();
         const username = usernameRef.current?.value;
         const password = passwordRef.current?.value;
 
@@ -56,7 +58,6 @@ export function SignUp() {
             handleSubmit={handleSubmit}
             usernameRef={usernameRef}
             passwordRef={passwordRef}
-            isLoading={isLoading}
         />
         </div>
     );

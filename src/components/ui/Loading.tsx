@@ -1,9 +1,12 @@
-export function Loader(){
-    return <div className="bg-gray-50  min-h-screen flex items-center justify-center">
-        <Loading/>
-    </div>
-}
+export function Loader() {
+    return (
+      <div className="fixed top-0 left-0 w-screen h-screen bg-black/50 flex items-center justify-center z-[9999]">
+        <span className="loader"></span>
+      </div>
+    );
+  }
 
+  
 export function Loading() {
     return (
         <div role="status">
