@@ -1,9 +1,12 @@
 import { useNavigate } from 'react-router-dom';
-import { BookMarkIcon } from "../icons/BookMarkIcon";
 import ExtensionPromo from "./Extention";
 import { Header } from '../components/ui/Header';
 import { Footer } from '../components/ui/Footer';
 import { Button } from '../components/ui/Button';
+import { ClipIcon } from '../icons/ClipIcon';
+import { QuickSearchIcon } from '../icons/QuickSearchIcon';
+import { ClockIcon } from '../icons/ClockIcon';
+import { StackIcon } from '../icons/StackIcon';
 
 
 export default function LandingPage() {
@@ -12,7 +15,6 @@ export default function LandingPage() {
             <div className="w-screen h-screen bg-[url('/assets/bg.png')] bg-no-repeat bg-cover  absolute inset-0 bg-[url('/assets/bg.png')] opacity-60 -z-10"></div>
             <Header />
             <Hero />
-            {/* <BrandDivider /> */}
             <DashboardPreview />
             <Features />
             <ExtensionPromo />
@@ -34,94 +36,39 @@ function Hero() {
                 </p>
                 <div className="flex gap-8 pt-10">
                     <Button text={"Get Started"} type="button" variant="secondary" size="lg" onClick={() => navigate('/signup')} />
-                    <Button text={"Install Extension"} type="button" variant="primary" size="lg" onClick={() => navigate('/')}/>
+                    <a
+                        href="https://chromewebstore.google.com/detail/mindly-extension/mkklknokfhkehkdfgcifjihcblknnokb"
+                        target="_blank"
+                    >
+                        <Button text={"Install Extension"} type="button" variant="primary" size="lg" />
+                    </a>
                 </div>
             </div>
         </div>
     );
 }
 
-// function BrandDivider() {
-//     return (
-//         <div className="py-10 text-gray-800 text-center relative z-10">
-//             <div className="bg-white/90 flex flex-col md:flex-row justify-center items-center gap-8 py-10 text-gray-900">
-//                 <div className="flex flex-col items-center">
-//                     <VideoIcon size="lg"/>
-//                     <span className="">Youtube</span>
-//                 </div>
-//                 <div className="flex flex-col items-center">
-//                     <TweetIcon size="lg" />
-//                     <span className="">Twitter</span>
-//                 </div>
-//                 <div className="flex flex-col items-center">
-//                     <DocumentIcon size="lg"/>
-//                     <span className="">Blogs</span>
-//                 </div>
-//             </div>
-//         </div>
-//     );
-// }
-
-
-// function Features() {
-//     const features = [
-//         {
-//             title: "Quick Save Anywhere",
-//             desc: "Use our Chrome Extension to capture any web content directly to your Mindly dashboard.",
-//         },
-//         {
-//             title: "Smart Tagging & Search",
-//             desc: "Add tags and use filters to easily retrieve anything you’ve saved — when you need it most.",
-//         },
-//         {
-//             title: "Seamless Access",
-//             desc: "Your saved content, neatly organized and always accessible across devices.",
-//         }
-//     ];
-
-//     return (
-//         <div className="flex flex-col justify-center text-center px-10 lg:px-50 py-20 relative z-10">
-//             <h3 className="text-4xl font-bold mb-4 text-gray-900">Features That Fit Your Flow</h3>
-//             <p className="text-gray-600 max-w-xl mx-auto mb-10">
-//                 Built for creators, learners, and anyone who values organized knowledge.
-//             </p>
-//             <div className="grid md:grid-cols-3 gap-8">
-//                 {features.map((feature, idx) => (
-//                     <div
-//                         key={idx}
-//                         className="flex flex-col items-center p-8 rounded-lg shadow-md gap-4 bg-white hover:scale-105 hover:shadow-lg transition-transform duration-300"
-//                     >
-//                         <BookMarkIcon size="lg" />
-//                         <h3 className="text-xl font-semibold">{feature.title}</h3>
-//                         <p className="text-gray-600">{feature.desc}</p>
-//                     </div>
-//                 ))}
-//             </div>
-//         </div>
-//     ); 
-// }
-
 function Features() {
     const features = [
         {
             title: "Clip Anything, Anytime",
             desc: "Save articles, videos, tweets, or documents directly with a single click using our extension.",
-            icon: <BookMarkIcon size="lg" />
+            icon: <ClipIcon size="lg" />
         },
         {
             title: "Smart Collections",
             desc: "Organize your saved content into collections and categories that make sense to you.",
-            icon: <BookMarkIcon size="lg" />
+            icon: <StackIcon size="lg" />
         },
         {
             title: "Quick Search & Tags",
             desc: "Find anything instantly with powerful search and custom tags for every saved item.",
-            icon: <BookMarkIcon size="lg" />
+            icon: <QuickSearchIcon size="lg" />
         },
         {
             title: "Access Anywhere",
-            desc: "Your knowledge base is always available on desktop or mobile, synced in real-time.",
-            icon: <BookMarkIcon size="lg" />
+            desc: "Your knowledge base is always available on the web, synced in real-time.",
+            icon: <ClockIcon size="lg" />
         },
     ];
 
@@ -137,7 +84,7 @@ function Features() {
                         key={idx}
                         className="flex flex-col items-center text-center p-6 rounded-xl shadow hover:shadow-lg transition duration-300 hover:scale-[1.03] bg-white"
                     >
-                        <div className="mb-4 text-indigo-600">{feature.icon}</div>
+                        <div className="mb-4 text-indigo-500 bg-gray-50 p-4 rounded-lg">{feature.icon}</div>
                         <h4 className="text-xl font-semibold mb-2">{feature.title}</h4>
                         <p className="text-gray-600">{feature.desc}</p>
                     </div>

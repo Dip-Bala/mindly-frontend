@@ -1,69 +1,99 @@
-# React + TypeScript + Vite
+# 🧠 Mindly — Your Second Brain for the Web
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Mindly** is a productivity web app built with **React, TypeScript, TailwindCSS**, allowing users to capture, organize, and revisit their favorite web content.
 
-Currently, two official plugins are available:
+This repository contains only the **Frontend Client** of Mindly — featuring a responsive dashboard, smart content organization, and seamless integration with the Chrome Extension.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+* 🔗 Save videos, tweets, links, articles, documents
+* 🏷️ Add tags, titles & organize content smartly
+* 🔐 Secure user authentication flow (JWT)
+* 🧩 Chrome Extension support for one-click saves
+* 🖥️ Clean, responsive UI built with TailwindCSS
+* 📖 Typed API calls & state management with custom hooks
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## 🛠️ Tech Stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+* **React.js** with **TypeScript**
+* **TailwindCSS** for UI
+* **Axios** for API Calls
+* **React Query** for server side state management
+* **Vite** as build tool
+* **Hero Icons** for icons
+
+---
+
+## 📁 Project Directory
+
+```
+.
+├── public
+│   └── assets                # Static images & favicons
+└── src
+    ├── assets                # Component-level assets
+    ├── authentication        # Auth pages & logic (login/signup)
+    ├── components
+    │   └── ui                # Reusable UI Components
+    │       ├── createContent # Create content modals/forms
+    │       └── linkUrls      # UI for linked content blocks
+    ├── hooks                 # Custom React Hooks
+    ├── icons                 # Icon Components (Lucide/Custom)
+    ├── interfaces            # TypeScript Interfaces/Types
+    ├── pages                 # Main page components (Dashboard, Home, etc.)
+    └── types                 # Shared Type Definitions
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🧩 Chrome Extension
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Save content directly while browsing using the **Mindly Chrome Extension**
+
+🛒 **[Available on Chrome Web Store](https://chromewebstore.google.com/detail/mindly-extension/mkklknokfhkehkdfgcifjihcblknnokb)**
+
+> Integrates seamlessly with your saved content on the Mindly Dashboard.
+
+---
+
+## 📄 API Reference
+
+The frontend interacts with the **Mindly Backend API** for authentication and content management.
+Full API Documentation available here:
+
+📖 **[Mindly API Docs](https://github.com/Dip-Bala/mindly-second-brain)**
+
+---
+
+## 📝 Environment Variables
+
+Copy `.env.example` as `.env` in the root directory and use it in the `config.ts` file:
+
+```env
+VITE_API_BASE_URL=http://localhost:5000
 ```
+
+---
+
+## 🚀 Deployment
+
+* **Frontend Live:** [https://www.appmindly.live/](https://www.appmindly.live/)
+* **Backend & API:** [Mindly API Repository](https://github.com/Dip-Bala/mindly-second-brain)
+* **Chrome Extension:** [Web Store Listing](https://chromewebstore.google.com/detail/mindly-extension/mkklknokfhkehkdfgcifjihcblknnokb)
+
+---
+
+## 🤝 Contributing
+
+We welcome feature requests, bug reports, and contributions.
+Feel free to fork the repo and submit a PR.
+
+---
+
+## 📜 License
+
+[MIT License](LICENSE)

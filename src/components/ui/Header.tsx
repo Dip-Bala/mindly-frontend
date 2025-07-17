@@ -13,7 +13,11 @@ export function Header() {
                     <h1 className="text-xl font-bold">Mindly</h1>
                 </div>
                 <div className="sm:flex space-x-4 hidden">
-                    <button className="cursor-pointer text-gray-700 border-gray-100 rounded-md backdrop-blur-xs font-medium hover:outline-2 hover:outline-indigo-600 hover:bg-white p-2 hover:scale-105 " onClick={() => navigate('/')} >Install Extention</button>
+                    <a href="https://chromewebstore.google.com/detail/mindly-extension/mkklknokfhkehkdfgcifjihcblknnokb"
+                        target="_blank">
+                    <button className="cursor-pointer text-gray-700 border-gray-100 rounded-md backdrop-blur-xs font-medium hover:outline-2 hover:outline-indigo-600 hover:bg-white p-2 hover:scale-105 ">Install Extention</button>
+
+                    </a>
                     <Button text="Sign in" variant="primary" type="button" size="md" onClick={() => navigate('/signin')} />
                     <Button text="Get Started" variant="secondary" type="button" size="md" onClick={() => navigate('/signup')} />
                 </div>

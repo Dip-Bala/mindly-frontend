@@ -25,8 +25,8 @@ const SizeStyle: Record<SizeType, string> = {
 };
 const VariantStyle: Record<VariantType, string> = {
   primary:
-    "bg-white outline text-indigo-700 hover:outline-2 hover:outline-indigo-600/90 hover:bg-white focus:bg-purple-800 focus:text-white",
-  secondary: "bg-indigo-600 text-white  hover:shadow-md hover:shadow-indigo-600/50 focus:bg-purple-500",
+    "bg-white outline text-indigo-700 hover:outline-2 hover:outline-indigo-600/90 hover:bg-white focus:bg-indigo-700 focus:text-white",
+  secondary: "bg-indigo-600 text-white  hover:shadow-md hover:shadow-indigo-600/50 focus:bg-indigo-500",
 };
 const fullWidthStyle = "w-full";
 

@@ -7,7 +7,7 @@ export const DeleteIcon = ({ size }: IconProps) => {
             fill="none" viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="currentColor"
-            className={`${IconSizeVariants[size]} cursor-pointer hover:text-purple-600`}>
+            className={`${IconSizeVariants[size]} cursor-pointer hover:text-indigo-600`}>
 
 
             <path

@@ -92,9 +92,9 @@ export function CreateContentForm({ onClose }: CreateContentFormProps) {
                 <div className="flex flex-col gap-2">
                     <label className="text-sm font-semibold text-indigo-600">Type</label>
                     <div className="flex gap-2">
-                        <Button variant="secondary" text="" size="sm" startIcon={<TweetIcon size="md" />} onClick={() => typeRef.current = "tweet"} type="button" />
-                        <Button variant="secondary" text="" size="sm" startIcon={<VideoIcon size="md" />} onClick={() => typeRef.current = "youtube"} type="button" />
-                        <Button variant="secondary" text="" size="sm" startIcon={<DocumentIcon size="md" />} onClick={() => typeRef.current = "document"} type="button" />
+                        <Button variant="primary" text="" size="sm" startIcon={<TweetIcon size="md" />} onClick={() => typeRef.current = "tweet"} type="button" />
+                        <Button variant="primary" text="" size="sm" startIcon={<VideoIcon size="md" />} onClick={() => typeRef.current = "youtube"} type="button" />
+                        <Button variant="primary" text="" size="sm" startIcon={<DocumentIcon size="md" />} onClick={() => typeRef.current = "document"} type="button" />
                     </div>
                 </div>
                 <div className="flex flex-col">
